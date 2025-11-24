@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+:root {
+  /* Kawaii Kitsune Colors */
+  --kitsune-orange: #FF9D76;
+  --kitsune-pink: #FFB4D6;
+  --kitsune-purple: #C9A0FF;
+  --kitsune-cyan: #7DD3FC;
+  
+  --bg-cream: #FFF8F3;
+  --bg-white: #FFFFFF;
+  --bg-pink-tint: #FFF0F7;
+  
+  --text-primary: #2D1B4E;
+  --text-secondary: #6B4E8F;
+  --text-accent: #FF6B9D;
+  --text-muted: #A899B8;
+  
+  --success: #7FD99E;
+  --warning: #FFD97D;
+  --error: #FF9898;
+  
+  /* Tailwind compatibility */
+  --background: #FFF8F3;
+  --foreground: #2D1B4E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+}
+
+/* FIXED: Only box-sizing, no margin/padding reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Utility Classes */
+.gradient-kitsune {
+  background: linear-gradient(135deg, var(--kitsune-pink) 0%, var(--kitsune-purple) 50%, var(--kitsune-cyan) 100%);
+}
+
+.gradient-warm {
+  background: linear-gradient(135deg, var(--kitsune-orange) 0%, var(--kitsune-pink) 100%);
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glow-pink {
+  box-shadow: 0 4px 24px rgba(255, 180, 214, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 4px 24px rgba(201, 160, 255, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--kitsune-pink), var(--kitsune-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--kitsune-orange), var(--kitsune-pink));
+}
+
+/* Selection */
+::selection {
+  background: var(--kitsune-pink);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: var(--kitsune-pink);
+  color: var(--text-primary);
+}
+
+/* Wallet Button Override */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, var(--kitsune-pink), var(--kitsune-purple)) !important;
+  border-radius: 16px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  box-shadow: 0 8px 24px rgba(255, 180, 214, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.wallet-adapter-button-trigger {
+  background: linear-gradient(135deg, var(--kitsune-pink), var(--kitsune-purple)) !important;
+}
+
+/* Wallet Button Mobile Fix */
+@media (max-width: 640px) {
+  .wallet-adapter-button {
+    font-size: 0.75rem !important;
+    padding: 0.5rem 0.75rem !important;
+    min-width: 100px !important;
+    white-space: nowrap !important;
+  }
+  
+  .wallet-adapter-button-trigger {
+    font-size: 0.75rem !important;
+    color: white !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* Ensure wallet button text is always visible */
+.wallet-adapter-button,
+.wallet-adapter-button-trigger {
+  color: white !important;
+  font-weight: 600 !important;
+}
