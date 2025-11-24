@@ -1,9 +1,9 @@
 # YOKAI RPC
 
-[![npm client](https://img.shields.io/npm/v/@yokairpc/client.svg)](https://www.npmjs.com/package/@yokairpc/client)
-[![npm sdk](https://img.shields.io/npm/v/@yokairpc/sdk.svg)](https://www.npmjs.com/package/@yokairpc/sdk)
-[![downloads](https://img.shields.io/npm/dm/@yokairpc/sdk.svg)](https://www.npmjs.com/package/@yokairpc/sdk)
-[![license](https://img.shields.io/npm/l/@yokairpc/client.svg)](https://github.com/yokairpc/yokai-rpc/blob/main/LICENSE)
+[![npm client version](https://img.shields.io/npm/v/@yokairpc/client?label=@yokairpc/client&color=E91E63)](https://www.npmjs.com/package/@yokairpc/client)
+[![npm sdk version](https://img.shields.io/npm/v/@yokairpc/sdk?label=@yokairpc/sdk&color=9C27B0)](https://www.npmjs.com/package/@yokairpc/sdk)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yokairpc/yokai-rpc/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/yokairpc/yokai-rpc?style=social)](https://github.com/yokairpc/yokai-rpc)
 
 Privacy-first DeFi infrastructure on Solana with built-in MEV protection.
 
