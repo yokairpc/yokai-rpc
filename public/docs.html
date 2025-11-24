@@ -156,6 +156,7 @@
         <div class="mb-8">
           <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">For Developers</h3>
           <ul class="space-y-1">
+            <li><a href="#npm-packages" class="sidebar-link block py-2 px-3 text-sm text-gray-700 rounded-lg">NPM Packages</a></li>
             <li><a href="#developer-api" class="sidebar-link block py-2 px-3 text-sm text-gray-700 rounded-lg">Developer API</a></li>
             <li><a href="#enterprise" class="sidebar-link block py-2 px-3 text-sm text-gray-700 rounded-lg">Enterprise Solutions</a></li>
           </ul>
@@ -605,16 +606,147 @@ const signature = await wallet.sendTransaction(tx, connection);</code></pre>
         <div class="bg-white rounded-2xl p-8 border-2 border-pink-200/50">
           <h3 class="text-2xl font-bold mb-4 text-gray-900">Getting Started</h3>
           <p class="text-lg text-gray-700 mb-6">
-            Integration takes less than 5 minutes. Simply replace your RPC endpoint and deploy. 
-            Your users get MEV protection automatically.
+            Integration takes less than 5 minutes. Install our NPM packages for the easiest setup, 
+            or simply replace your RPC endpoint. Your users get MEV protection automatically.
           </p>
           <div class="flex gap-4">
+            <a href="#npm-packages" class="inline-block px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-bold hover:shadow-xl transition-all">
+              Install NPM Package →
+            </a>
             <a href="#developer-api" class="inline-block px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-bold hover:shadow-xl transition-all">
               View API Docs →
             </a>
             <a href="https://x.com/yokairpcdotio" class="inline-block px-6 py-3 bg-white border-2 border-purple-300 text-purple-700 rounded-xl font-bold hover:bg-purple-50 transition-all">
               Follow Updates
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="npm-packages" class="mb-20">
+        <h2 class="text-4xl font-bold mb-6 text-gray-900">NPM Packages</h2>
+        
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-300 mb-8">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-xl text-gray-800 mb-4 leading-relaxed">
+                <strong>YOKAI RPC is now available as NPM packages!</strong>
+              </p>
+              <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Integrate MEV protection into your Solana dApp with just one npm install. 
+                Choose between our lightweight RPC client or full SDK with Jupiter integration.
+              </p>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">@yokairpc/client</h3>
+                <span class="ml-auto px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">~3KB</span>
+              </div>
+              <p class="text-gray-700 mb-4 text-sm">
+                Lightweight RPC client for MEV-protected transactions. Perfect for simple integrations.
+              </p>
+              <div class="code-block mb-4">
+                <pre><code class="text-xs text-green-400">npm install @yokairpc/client</code></pre>
+              </div>
+              <a href="https://www.npmjs.com/package/@yokairpc/client" target="_blank" class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors text-sm">
+                View on NPM
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">@yokairpc/sdk</h3>
+                <span class="ml-auto px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">~10KB</span>
+              </div>
+              <p class="text-gray-700 mb-4 text-sm">
+                Complete SDK with Jupiter integration, token utilities, and one-line swaps.
+              </p>
+              <div class="code-block mb-4">
+                <pre><code class="text-xs text-green-400">npm install @yokairpc/sdk</code></pre>
+              </div>
+              <a href="https://www.npmjs.com/package/@yokairpc/sdk" target="_blank" class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors text-sm">
+                View on NPM
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <h3 class="text-2xl font-bold mb-4 text-gray-900">Quick Start Examples</h3>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white rounded-xl p-6 border-2 border-pink-200/50">
+            <h4 class="text-lg font-bold mb-3 text-gray-900">Using @yokairpc/client</h4>
+            <div class="code-block">
+              <pre><code class="text-xs text-green-400">import { YokaiRPCClient } from '@yokairpc/client';
+
+      // Initialize client
+      const client = new YokaiRPCClient();
+
+      // Get Connection
+      const connection = client.getConnection();
+
+      // Send MEV-protected transaction
+      const signature = await client.sendTransaction(tx);</code></pre>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 border-2 border-purple-200/50">
+            <h4 class="text-lg font-bold mb-3 text-gray-900">Using @yokairpc/sdk</h4>
+            <div class="code-block">
+              <pre><code class="text-xs text-green-400">import { YokaiSDK } from '@yokairpc/sdk';
+
+      // Initialize SDK
+      const sdk = new YokaiSDK();
+
+      // One-line MEV-protected swap
+      const result = await sdk.swap({
+        inputToken: 'SOL',
+        outputToken: 'USDC',
+        amount: 1.5,
+        wallet: myWallet
+      });</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl p-8 text-white">
+          <div class="max-w-2xl mx-auto text-center">
+            <h3 class="text-3xl font-bold mb-4">Start Building with NPM</h3>
+            <p class="text-xl mb-6 text-purple-100">
+              Add MEV protection to your dApp in under 5 minutes
+            </p>
+            <div class="flex gap-4 justify-center">
+              <a href="https://www.npmjs.com/package/@yokairpc/client" target="_blank" class="inline-block px-6 py-3 bg-white text-purple-600 rounded-xl font-bold hover:shadow-2xl transition-all">
+                View Client Docs →
+              </a>
+              <a href="https://www.npmjs.com/package/@yokairpc/sdk" target="_blank" class="inline-block px-6 py-3 bg-purple-700 text-white rounded-xl font-bold hover:bg-purple-800 transition-all">
+                View SDK Docs →
+              </a>
+            </div>
           </div>
         </div>
       </section>
