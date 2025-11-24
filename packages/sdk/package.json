@@ -1,0 +1,43 @@
+{
+  "name": "@yokairpc/sdk",
+  "version": "1.0.0",
+  "description": "YOKAI SDK - Complete toolkit for privacy-first Solana development",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "rpc",
+    "mev-protection",
+    "privacy",
+    "blockchain",
+    "defi",
+    "jupiter",
+    "swap",
+    "dex",
+    "yokai"
+  ],
+  "author": "YOKAI RPC <yokairpconsolana@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yokairpc/yokai-rpc.git",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://app.yokairpc.io",
+  "dependencies": {
+    "@yokairpc/client": "^1.0.0",
+    "@solana/web3.js": "^1.95.8"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}

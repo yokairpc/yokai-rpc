@@ -1,0 +1,39 @@
+{
+  "name": "@yokairpc/client",
+  "version": "1.0.0",
+  "description": "YOKAI RPC Client - Privacy-first Solana RPC with MEV protection",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "rpc",
+    "mev-protection",
+    "privacy",
+    "blockchain",
+    "defi",
+    "yokai"
+  ],
+  "author": "YOKAI RPC <yokairpconsolana@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yokairpc/yokai-rpc.git",
+    "directory": "packages/client"
+  },
+  "homepage": "https://app.yokairpc.io",
+  "dependencies": {
+    "@solana/web3.js": "^1.95.8"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
