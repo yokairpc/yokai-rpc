@@ -103,14 +103,36 @@ export class YokaiRPCClient {
       
       console.log('✅ Transaction sent with MEV protection!')
       console.log('📝 Signature:', signature)
+      console.log('⏳ Waiting for confirmation...')
       
-      // Return immediately without waiting for confirmation
-      // User can check Solscan for confirmation status
-      console.log('✅ Transaction submitted successfully!')
-      
-      return {
-        success: true,
-        signature
+      // ✅ WAIT FOR CONFIRMATION
+      try {
+        const confirmation = await connection.confirmTransaction(
+          signature,
+          'confirmed'
+        )
+        
+        if (confirmation.value.err) {
+          console.error('❌ Transaction confirmation failed:', confirmation.value.err)
+          return {
+            success: false,
+            error: 'Transaction failed: ' + JSON.stringify(confirmation.value.err)
+          }
+        }
+        
+        console.log('✅ Transaction confirmed!')
+        
+        return {
+          success: true,
+          signature
+        }
+        
+      } catch (confirmError) {
+        console.error('❌ Confirmation error:', confirmError)
+        return {
+          success: false,
+          error: confirmError instanceof Error ? confirmError.message : 'Confirmation timeout'
+        }
       }
       
     } catch (error) {

@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       }
     });
-    
+      
   } catch (error: any) {
     console.error('[YOKAI RPC ERROR]', error.message);
     

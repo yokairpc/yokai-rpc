@@ -80,26 +80,38 @@ export default function SwapInterface() {
   }
   
   async function getTokenBalance(token: JupiterToken): Promise<number> {
-    if (!wallet.publicKey) return 0
+  if (!wallet.publicKey) return 0
+  
+  try {
+    if (token.address === TOKENS.SOL) {
+      const balance = await connection.getBalance(wallet.publicKey)
+      return balance / 1e9
+    }
     
-    try {
-      if (token.address === TOKENS.SOL) {
-        const balance = await connection.getBalance(wallet.publicKey)
-        return balance / 1e9
-      }
-      
-      const tokenMint = new PublicKey(token.address)
-      const tokenAccount = getAssociatedTokenAddressSync(
-        tokenMint,
-        wallet.publicKey
-      )
-      
-      const balance = await connection.getTokenAccountBalance(tokenAccount)
-      return parseFloat(balance.value.amount) / Math.pow(10, token.decimals)
-    } catch (error) {
+    const tokenMint = new PublicKey(token.address)
+    const tokenAccount = getAssociatedTokenAddressSync(
+      tokenMint,
+      wallet.publicKey
+    )
+    
+    const accountInfo = await connection.getAccountInfo(tokenAccount)
+    
+    if (!accountInfo) {
       return 0
     }
+    
+    const balance = await connection.getTokenAccountBalance(tokenAccount)
+    
+    // Use RPC's uiAmount if available, otherwise calculate
+    return balance.value.uiAmount !== null 
+      ? balance.value.uiAmount 
+      : parseFloat(balance.value.amount) / Math.pow(10, token.decimals)
+    
+  } catch (error) {
+    console.error('Error fetching token balance:', error)
+    return 0
   }
+}
   
   function handleSetMaxInput() {
     if (inputBalance === null) return
@@ -234,17 +246,54 @@ export default function SwapInterface() {
         connection
       )
       
-      if (txResult.success) {
-        setResult({
-          success: true,
-          message: 'Swap executed successfully with MEV protection!',
-          signature: txResult.signature
-        })
+      if (txResult.success && txResult.signature) {
+        console.log('✅ Transaction sent:', txResult.signature)
         
-        setInputAmount('')
-        setQuote(null)
+        // ✅ CRITICAL FIX: Wait for confirmation BEFORE refreshing balance
+        console.log('⏳ Waiting for transaction confirmation...')
         
-        setTimeout(() => fetchBalances(), 2000)
+        try {
+          const confirmation = await connection.confirmTransaction(
+            txResult.signature,
+            'confirmed'
+          )
+          
+          if (confirmation.value.err) {
+            throw new Error('Transaction failed: ' + JSON.stringify(confirmation.value.err))
+          }
+          
+          console.log('✅ Transaction confirmed!')
+          
+          // ✅ CRITICAL FIX: Refresh balances AFTER confirmation
+          console.log('🔄 Refreshing balances...')
+          await fetchBalances()
+          console.log('✅ Balances updated!')
+          
+          setResult({
+            success: true,
+            message: 'Swap executed successfully with MEV protection!',
+            signature: txResult.signature
+          })
+          
+          setInputAmount('')
+          setQuote(null)
+          
+        } catch (confirmError) {
+          console.error('⚠️ Confirmation error:', confirmError)
+          
+          // Transaction was sent but confirmation failed/timeout
+          setResult({
+            success: true,
+            message: 'Transaction sent but confirmation pending. Check Solscan for status.',
+            signature: txResult.signature
+          })
+          
+          setInputAmount('')
+          setQuote(null)
+          
+          // Still try to refresh balances after a delay as fallback
+          setTimeout(() => fetchBalances(), 5000)
+        }
         
       } else {
         setResult({

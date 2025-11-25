@@ -35,6 +35,12 @@ export const POPULAR_TOKENS: Record<string, Token> = {
     name: 'Jupiter',
     decimals: 6,
     logoURI: 'https://static.jup.ag/jup/icon.png'
+  },
+  YOKAI: {
+    symbol: 'YOKAI',
+    name: 'Yokai Token',
+    address: '9mbyMNLEhNffjhXvGDijvTrne1u281pa1tE6H1v2pump',
+    decimals: 6,
   }
 };
 

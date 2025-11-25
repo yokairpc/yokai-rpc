@@ -52,6 +52,7 @@ export const TOKENS = {
   USDT: 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
   BONK: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263',
   WIF: 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm',
+  YOKAI: '9mbyMNLEhNffjhXvGDijvTrne1u281pa1tE6H1v2pump',
 }
 
 export const POPULAR_TOKENS = [
@@ -243,6 +244,14 @@ export async function getJupiterTokenList(): Promise<JupiterToken[]> {
         name: 'dogwifhat',
         decimals: 6,
         logoURI: 'https://bafkreibk3covs5ltyqxa272uodhculbr6kea6betidfwy3ajsav2vjzyum.ipfs.nftstorage.link',
+        chainId: 101
+      },
+      {
+        address: '9mbyMNLEhNffjhXvGDijvTrne1u281pa1tE6H1v2pump',
+        symbol: 'YOKAI',
+        name: 'Yokai RPC',
+        decimals: 6,
+        logoURI: 'https://cf-ipfs.com/ipfs/QmSMNVaSeJVYnxoHfA9z9g2pvfFfXYS1HEHKBWxBGsJ7PF',
         chainId: 101
       }
     ]
